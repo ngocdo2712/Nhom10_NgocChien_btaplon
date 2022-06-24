@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3F6404B9-3B9B-4696-9175-A28682B2A76E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>btaplon</RootNamespace>
+    <AssemblyName>btaplon</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DanhSachTaiKhoan.cs" />
+    <Compile Include="Frmdangky1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frmdangky1.Designer.cs">
+      <DependentUpon>Frmdangky1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmdangnhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmdangnhap.Designer.cs">
+      <DependentUpon>frmdangnhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmmainchinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmmainchinh.Designer.cs">
+      <DependentUpon>frmmainchinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmmuontra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmmuontra.Designer.cs">
+      <DependentUpon>frmmuontra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmmuontra2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmmuontra2.Designer.cs">
+      <DependentUpon>frmmuontra2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQLdocgia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQLdocgia.Designer.cs">
+      <DependentUpon>frmQLdocgia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQLsach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQLsach.Designer.cs">
+      <DependentUpon>frmQLsach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQLtacgia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQLtacgia.Designer.cs">
+      <DependentUpon>frmQLtacgia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmquenmatkhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmquenmatkhau.Designer.cs">
+      <DependentUpon>frmquenmatkhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmquenmk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmquenmk.Designer.cs">
+      <DependentUpon>frmquenmk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTimKiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTimKiem.Designer.cs">
+      <DependentUpon>frmTimKiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaiKhoan.cs" />
+    <EmbeddedResource Include="Frmdangky1.resx">
+      <DependentUpon>Frmdangky1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmdangnhap.resx">
+      <DependentUpon>frmdangnhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmmainchinh.resx">
+      <DependentUpon>frmmainchinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmmuontra.resx">
+      <DependentUpon>frmmuontra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmmuontra2.resx">
+      <DependentUpon>frmmuontra2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQLdocgia.resx">
+      <DependentUpon>frmQLdocgia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQLsach.resx">
+      <DependentUpon>frmQLsach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQLtacgia.resx">
+      <DependentUpon>frmQLtacgia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmquenmatkhau.resx">
+      <DependentUpon>frmquenmatkhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmquenmk.resx">
+      <DependentUpon>frmquenmk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTimKiem.resx">
+      <DependentUpon>frmTimKiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\avatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login-vector-icon-isolated-on-transparent-background-login-logo-concept-P1KHRE.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z3497118384496_a3e18916e3be139ced33d05a64f677cd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Databasedangnhap.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Databasedangnhap_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Databasedangnhap.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
