@@ -43,16 +43,27 @@ namespace btaplon
             this.button3 = new System.Windows.Forms.Button();
             this.btnadd = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnlast = new System.Windows.Forms.Button();
+            this.btnnext = new System.Windows.Forms.Button();
+            this.btnfirst = new System.Windows.Forms.Button();
+            this.btnprv = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.GrdData = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
             this.MaSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TacGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nganh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button2 = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.btnSave = new System.Windows.Forms.Button();
+            this.MaSach2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenSach2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TacGia2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nganh2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GrdData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -184,7 +195,7 @@ namespace btaplon
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Red;
-            this.button3.Location = new System.Drawing.Point(1017, 320);
+            this.button3.Location = new System.Drawing.Point(888, 319);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(127, 45);
@@ -198,7 +209,7 @@ namespace btaplon
             this.btnadd.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnadd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnadd.ForeColor = System.Drawing.Color.Blue;
-            this.btnadd.Location = new System.Drawing.Point(723, 320);
+            this.btnadd.Location = new System.Drawing.Point(592, 320);
             this.btnadd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnadd.Name = "btnadd";
             this.btnadd.Size = new System.Drawing.Size(127, 45);
@@ -210,6 +221,11 @@ namespace btaplon
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btnlast);
+            this.panel2.Controls.Add(this.btnnext);
+            this.panel2.Controls.Add(this.btnfirst);
+            this.panel2.Controls.Add(this.btnprv);
+            this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.GrdData);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 394);
@@ -218,6 +234,63 @@ namespace btaplon
             this.panel2.Size = new System.Drawing.Size(1186, 331);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // btnlast
+            // 
+            this.btnlast.Location = new System.Drawing.Point(1068, 291);
+            this.btnlast.Name = "btnlast";
+            this.btnlast.Size = new System.Drawing.Size(75, 27);
+            this.btnlast.TabIndex = 17;
+            this.btnlast.Text = "Cuối";
+            this.btnlast.UseVisualStyleBackColor = true;
+            this.btnlast.Click += new System.EventHandler(this.btnlast_Click);
+            // 
+            // btnnext
+            // 
+            this.btnnext.Location = new System.Drawing.Point(970, 291);
+            this.btnnext.Name = "btnnext";
+            this.btnnext.Size = new System.Drawing.Size(75, 27);
+            this.btnnext.TabIndex = 16;
+            this.btnnext.Text = "Sau";
+            this.btnnext.UseVisualStyleBackColor = true;
+            this.btnnext.Click += new System.EventHandler(this.btnnext_Click);
+            // 
+            // btnfirst
+            // 
+            this.btnfirst.Location = new System.Drawing.Point(774, 289);
+            this.btnfirst.Name = "btnfirst";
+            this.btnfirst.Size = new System.Drawing.Size(75, 27);
+            this.btnfirst.TabIndex = 15;
+            this.btnfirst.Text = "Đầu";
+            this.btnfirst.UseVisualStyleBackColor = true;
+            this.btnfirst.Click += new System.EventHandler(this.btnfirst_Click);
+            // 
+            // btnprv
+            // 
+            this.btnprv.Location = new System.Drawing.Point(872, 289);
+            this.btnprv.Name = "btnprv";
+            this.btnprv.Size = new System.Drawing.Size(75, 27);
+            this.btnprv.TabIndex = 14;
+            this.btnprv.Text = "Trước";
+            this.btnprv.UseVisualStyleBackColor = true;
+            this.btnprv.Click += new System.EventHandler(this.btnprv_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaSach2,
+            this.TenSach2,
+            this.TacGia2,
+            this.Nganh2});
+            this.dataGridView1.Location = new System.Drawing.Point(1, -1);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(1184, 283);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // GrdData
             // 
@@ -235,19 +308,6 @@ namespace btaplon
             this.GrdData.Size = new System.Drawing.Size(1184, 283);
             this.GrdData.TabIndex = 0;
             this.GrdData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Blue;
-            this.button2.Location = new System.Drawing.Point(870, 320);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(127, 45);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Sửa";
-            this.button2.UseVisualStyleBackColor = false;
             // 
             // MaSach
             // 
@@ -281,10 +341,70 @@ namespace btaplon
             this.Nganh.MinimumWidth = 6;
             this.Nganh.Name = "Nganh";
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Blue;
+            this.button2.Location = new System.Drawing.Point(740, 319);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(127, 45);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "Sửa";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // notifyIcon1
             // 
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.AliceBlue;
+            this.btnSave.Location = new System.Drawing.Point(1034, 320);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(127, 45);
+            this.btnSave.TabIndex = 14;
+            this.btnSave.Text = "Lưu";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // MaSach2
+            // 
+            this.MaSach2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MaSach2.DataPropertyName = "MaSach";
+            this.MaSach2.HeaderText = "Mã Sách";
+            this.MaSach2.MinimumWidth = 6;
+            this.MaSach2.Name = "MaSach2";
+            // 
+            // TenSach2
+            // 
+            this.TenSach2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenSach2.DataPropertyName = "TenSach";
+            this.TenSach2.HeaderText = "Tên Sách";
+            this.TenSach2.MinimumWidth = 6;
+            this.TenSach2.Name = "TenSach2";
+            // 
+            // TacGia2
+            // 
+            this.TacGia2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TacGia2.DataPropertyName = "TacGia";
+            this.TacGia2.HeaderText = "Tác giả";
+            this.TacGia2.MinimumWidth = 6;
+            this.TacGia2.Name = "TacGia2";
+            // 
+            // Nganh2
+            // 
+            this.Nganh2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Nganh2.DataPropertyName = "Nganh";
+            this.Nganh2.HeaderText = "Ngành";
+            this.Nganh2.MinimumWidth = 6;
+            this.Nganh2.Name = "Nganh2";
             // 
             // frmQLsach
             // 
@@ -292,6 +412,7 @@ namespace btaplon
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1186, 725);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.panel2);
@@ -306,6 +427,7 @@ namespace btaplon
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GrdData)).EndInit();
             this.ResumeLayout(false);
 
@@ -333,5 +455,15 @@ namespace btaplon
         private System.Windows.Forms.DataGridViewTextBoxColumn TacGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nganh;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.Button btnlast;
+        private System.Windows.Forms.Button btnnext;
+        private System.Windows.Forms.Button btnfirst;
+        private System.Windows.Forms.Button btnprv;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaSach2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenSach2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TacGia2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nganh2;
     }
 }

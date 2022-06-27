@@ -32,10 +32,6 @@ namespace btaplon
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmmainchinh));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.tàiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýDanhMụcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.quảnLýSáchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,7 +44,10 @@ namespace btaplon
             this.quảnLýTácGiảToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýMượnTrảSáchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.báoCáoThốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tìmKiếmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tàiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.taikhoan = new System.Windows.Forms.ImageList(this.components);
@@ -70,7 +69,6 @@ namespace btaplon
             this.quảnLýDanhMụcToolStripMenuItem,
             this.quảnLýMượnTrảSáchToolStripMenuItem,
             this.báoCáoThốngKêToolStripMenuItem,
-            this.tìmKiếmToolStripMenuItem,
             this.tàiToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -78,37 +76,6 @@ namespace btaplon
             this.menuStrip1.Size = new System.Drawing.Size(1072, 37);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // tàiToolStripMenuItem
-            // 
-            this.tàiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.thôngTinToolStripMenuItem,
-            this.toolStripSeparator3,
-            this.đăngXuấtToolStripMenuItem});
-            this.tàiToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tàiToolStripMenuItem.Name = "tàiToolStripMenuItem";
-            this.tàiToolStripMenuItem.Size = new System.Drawing.Size(139, 33);
-            this.tàiToolStripMenuItem.Text = "Tài Khoản";
-            // 
-            // thôngTinToolStripMenuItem
-            // 
-            this.thôngTinToolStripMenuItem.Image = global::btaplon.Properties.Resources.avatar;
-            this.thôngTinToolStripMenuItem.Name = "thôngTinToolStripMenuItem";
-            this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(270, 38);
-            this.thôngTinToolStripMenuItem.Text = "Thông Tin";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(267, 6);
-            // 
-            // đăngXuấtToolStripMenuItem
-            // 
-            this.đăngXuấtToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("đăngXuấtToolStripMenuItem.Image")));
-            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(270, 38);
-            this.đăngXuấtToolStripMenuItem.Text = "Đăng Xuất";
-            this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
             // quảnLýDanhMụcToolStripMenuItem
             // 
@@ -201,13 +168,36 @@ namespace btaplon
             this.báoCáoThốngKêToolStripMenuItem.Size = new System.Drawing.Size(248, 33);
             this.báoCáoThốngKêToolStripMenuItem.Text = "Báo Cáo - Thống Kê";
             // 
-            // tìmKiếmToolStripMenuItem
+            // tàiToolStripMenuItem
             // 
-            this.tìmKiếmToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tìmKiếmToolStripMenuItem.Name = "tìmKiếmToolStripMenuItem";
-            this.tìmKiếmToolStripMenuItem.Size = new System.Drawing.Size(133, 33);
-            this.tìmKiếmToolStripMenuItem.Text = "Tìm Kiếm";
-            this.tìmKiếmToolStripMenuItem.Click += new System.EventHandler(this.tìmKiếmToolStripMenuItem_Click);
+            this.tàiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.thôngTinToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.đăngXuấtToolStripMenuItem});
+            this.tàiToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tàiToolStripMenuItem.Name = "tàiToolStripMenuItem";
+            this.tàiToolStripMenuItem.Size = new System.Drawing.Size(139, 33);
+            this.tàiToolStripMenuItem.Text = "Tài Khoản";
+            // 
+            // thôngTinToolStripMenuItem
+            // 
+            this.thôngTinToolStripMenuItem.Image = global::btaplon.Properties.Resources.avatar;
+            this.thôngTinToolStripMenuItem.Name = "thôngTinToolStripMenuItem";
+            this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(270, 38);
+            this.thôngTinToolStripMenuItem.Text = "Thông Tin";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(267, 6);
+            // 
+            // đăngXuấtToolStripMenuItem
+            // 
+            this.đăngXuấtToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("đăngXuấtToolStripMenuItem.Image")));
+            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(270, 38);
+            this.đăngXuấtToolStripMenuItem.Text = "Đăng Xuất";
+            this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
             // contextMenuStrip1
             // 
@@ -276,6 +266,7 @@ namespace btaplon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1072, 622);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -284,6 +275,7 @@ namespace btaplon
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmmainchinh";
             this.Text = "frmmainchinh";
+            this.Load += new System.EventHandler(this.frmmainchinh_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -310,7 +302,6 @@ namespace btaplon
         private System.Windows.Forms.ToolStripMenuItem thôngTinĐộcGiảToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLýMượnTrảSáchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem báoCáoThốngKêToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tìmKiếmToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripMenuItem quảnLýTácGiảToolStripMenuItem;

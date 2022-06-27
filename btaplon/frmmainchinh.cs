@@ -99,5 +99,10 @@ namespace btaplon
             this.Controls.Add(form);
             form.Show();
         }
+
+        private void frmmainchinh_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
