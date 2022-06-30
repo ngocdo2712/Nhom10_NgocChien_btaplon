@@ -21,7 +21,8 @@ namespace btaplon
         DataTable comdt = new DataTable();
         int i;
         bool addnewflag;
-        
+        DataTable dtBC = new DataTable();
+
         public frmQLsach()
         {
             InitializeComponent();
@@ -34,29 +35,12 @@ namespace btaplon
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtTacGia.Text))
-            {
-                (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Empty;
-            }
-            else
-            {
-                (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("TacGia LIKE '%{0}%'", txtTacGia.Text);
 
-            }
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtNganh.Text))
-            {
-                (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Empty;
-            }
-            else
-            {
-                (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("Nganh LIKE '%{0}%'", txtNganh.Text);
 
-            }
-            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -71,19 +55,25 @@ namespace btaplon
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            dataGridView1.CurrentCell = dataGridView1[0, dataGridView1.RowCount - 1];
-           // NapCT();
-            MessageBox.Show("Hãy nhập nội dung của bản ghi mới, kết thúc với nút Lưu");
-            //ấn enter xuống dòng -> mở cửa sổ property của form -> key preview -> true nếu muốn click phím enter thì nhảy xuống ô tiếp theo
-            // key down trong event
-            txtMaSach.Text = "";
-            txtTenSach.Text = "";
-            txtTacGia.Text = "";
-            txtNganh.Text = "";
-            txtMaSach.Focus();
+            //dataGridView1.CurrentCell = dataGridView1[0, dataGridView1.RowCount - 1];
+            //NapCT();
+            //MessageBox.Show("Hãy nhập nội dung của bản ghi mới, kết thúc với nút Lưu");
+            ////ấn enter xuống dòng -> mở cửa sổ property của form -> key preview -> true nếu muốn click phím enter thì nhảy xuống ô tiếp theo
+            //// key down trong event
+            //txtMaSach.Text = "";
+            //txtTenSach.Text = "";
+            //txtTacGia.Text = "";
+            //txtNganh.Text = "";
+            //txtMaSach.Focus();
+            //addnewflag = true;
             addnewflag = true;
+            dataGridView1.CurrentCell = dataGridView1[0, dataGridView1.RowCount - 1];
+            NapCT();
+            MessageBox.Show("Hãy nhập nội dung của bản ghi mới, kết thúc với nút Lưu");
+            txtMaSach.Focus();
 
         }
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -91,27 +81,12 @@ namespace btaplon
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtMaSach.Text))
-            {
-                (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Empty;
-            }
-            else
-            {
-                (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("MaSach='{0}'", txtMaSach.Text);
-            }
+
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtTenSach.Text))
-            {
-                (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Empty;
-            }
-            else
-            {
-                (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("TenSach LIKE '%{0}%'", txtTenSach.Text);
 
-            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -131,8 +106,7 @@ namespace btaplon
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-               // NapCT();
+            NapCT();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -142,25 +116,24 @@ namespace btaplon
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
-  
+
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa dòng hiện thời?", "Xác nhận yêu cầu", MessageBoxButtons.YesNo)
-                == DialogResult.Yes)
+               == DialogResult.Yes)
             {
-                
-                sql = "delete from QLGiaoTrinh where MaSach = '" + txtMaSach.Text + "'";
+                i = dataGridView1.CurrentRow.Index;
+                sql = "delete from QLGiaoTrinh where MaSach = '" + dataGridView1.Rows[i].Cells["clMaSach"].Value.ToString() + "'";
                 cmd.CommandText = sql;
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();
-                i = dataGridView1.CurrentRow.Index;
                 dataGridView1.Rows.RemoveAt(i); //////xóa dòng hiện tại (dòng i)
-              //  NapCT();
+                NapCT();
             }
-            
+
         }
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -172,33 +145,50 @@ namespace btaplon
             constr = " Data Source = DESKTOP-DTNCD1C\\SQLEXPRESS; Initial Catalog = QLSach; Integrated Security = True";
             conn.ConnectionString = constr;
             conn.Open();
-            sql = "Select * From QLGiaoTrinh";
+            sql = "Select * From QLGiaoTrinh order by MaSach";
             da = new SqlDataAdapter(sql, conn);
             dt = new DataTable();
-            da.Fill(dt); //cmt
-
+            da.Fill(dt); //dữ liệu từ da đổ vào bảng dt
             dataGridView1.DataSource = dt;
             //tạo grid table -> tạo column -> sửa name, text và name = data property name, sửa align ...
-            dataGridView1.Refresh();
+            sql = "Select Distinct manhom from QLGiaoTrinh";
+            da = new SqlDataAdapter(sql, conn);
+            //da.Fill(dtNhom);
+            //txtMaSach.DataSource = dtNhom;
+            //txtMaSach.DisplayMember = "MaSach";
+            NapCT();
+            conn.Close();
+        }
+        private void NapCT()
+        {
+            i = dataGridView1.CurrentRow.Index; //i sẽ chứa số thứ tự của dòng hiện thời trong ô lưới
+            txtMaSach.Text = dataGridView1.Rows[i].Cells["clMaSach"].Value.ToString();       // cách lấy gt dòng i, cột mã nhóm 
+            txtTenSach.Text = dataGridView1.Rows[i].Cells["clTenSach"].Value.ToString();
+            txtTacGia.Text = dataGridView1.Rows[i].Cells["clTacGia"].Value.ToString();
+            txtNganh.Text = dataGridView1.Rows[i].Cells["clNganh"].Value.ToString();
 
 
         }
-
         private void button2_Click_1(object sender, EventArgs e)
         {
             MessageBox.Show("Hãy sửa nội dung của bản ghi hiện thời, kết thúc bằng nút Lưu");
+            addnewflag = false;
+            txtTenSach.Focus();
         }
 
         private void btnfirst_Click(object sender, EventArgs e)
         {
             dataGridView1.CurrentCell = dataGridView1[0, 0]; //[cot, dong]
-            //NapCT();
+            NapCT();
+
+
         }
 
         private void btnlast_Click(object sender, EventArgs e)
         {
             dataGridView1.CurrentCell = dataGridView1[0, dataGridView1.RowCount - 1];
-            //NapCT();
+            NapCT();
+
         }
 
         private void btnprv_Click(object sender, EventArgs e)
@@ -207,8 +197,9 @@ namespace btaplon
             if (i > 0)
             {
                 dataGridView1.CurrentCell = dataGridView1[0, i - 1];
-               // NapCT();
+                NapCT();
             }
+
         }
 
         private void btnnext_Click(object sender, EventArgs e)
@@ -217,34 +208,104 @@ namespace btaplon
             if (i < dataGridView1.RowCount - 1)
             {
                 dataGridView1.CurrentCell = dataGridView1[0, i + 1];
-                // NapCT();
+                NapCT();
+
             }
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btntimkiem_Click(object sender, EventArgs e)
+        {
+            if (comTruong.Text == "")
+            {
+                MessageBox.Show("Bạn cần thiết lập điều kiện tìm kiếm trước");
+            }
+            else
+            {
+                sql = "Select MaSach, TenSach, TacGia, Nganh From QLGiaoTrinh" + " where " + comTruong.Text + " =N'" + comGT.Text + "'";
+                da = new SqlDataAdapter(sql, conn);
+                dt.Clear();
+                da.Fill(dt); //cmt
+                dataGridView1.DataSource = dt;
+                dataGridView1.Refresh();
+                //tạo grid table -> tạo column -> sửa name, text và name = data property name, sửa align ...
+                NapCT();
+            }
+
+        }
+
+        private void comboTimKiem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void comTruong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            sql = "select distinct " + comTruong.Text + " From QLGiaoTrinh";
+            da = new SqlDataAdapter(sql, conn);
+            comdt.Clear();
+            da.Fill(comdt);// truy vấn và đổ dl vào comdt
+            comGT.DataSource = comdt;
+            comGT.DisplayMember = comTruong.Text;
+        }
+
+        private void comGT_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_3(object sender, EventArgs e)
+        {
+            sql = "Select MaSach, TenSach, TacGia, Nganh From QLGiaoTrinh";
+            da = new SqlDataAdapter(sql, conn);
+            dt.Clear();
+            da.Fill(dt); //cmt
+            dataGridView1.DataSource = dt;
+            dataGridView1.Refresh();
+            //tạo grid table -> tạo column -> sửa name, text và name = data property name, sửa align ...
+            NapCT();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            sql = "Select MaSach, TenSach, TacGia, Nganh From QLGiaoTrinh" + " where " + comTruong.Text + " =N'" + comGT.Text + "'";
+            da = new SqlDataAdapter(sql, conn);
+            dtBC.Clear();
+            da.Fill(dtBC); //cmt
+            QLSachReport bc = new QLSachReport();
+            bc.SetDataSource(dtBC); //TRUYỀN DL VÀO BẢNG BC
+            bc.DataDefinition.FormulaFields["TenTruong"].Text = "'" + comTruong.Text + "'";//truyền ND tên trường
+            bc.DataDefinition.FormulaFields["GiaTri"].Text = "'" + comGT.Text + "'";
+
+            rptQLGiaoTrinh f = new rptQLGiaoTrinh(bc);
+            f.Show();
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+
             if (addnewflag == true)
             {
-                addnewflag = false;
-
-                //string sqlINSERT = "insert into QLGiaoTrinh values (@MaSach, @TenSach, @TacGia, @Nganh)";
-                //SqlCommand cmd = new SqlCommand(sqlINSERT, conn);
-                //cmd.Parameters.AddWithValue("MaSach", txtMaSach.Text);
-                //cmd.Parameters.AddWithValue("TenSach", txtTenSach.Text);
-                //cmd.Parameters.AddWithValue("TacGia", txtTacGia.Text);
-                //cmd.Parameters.AddWithValue("Nganh", txtNganh.Text);
-                // cmd.ExecuteNonQuery();
-                //sql = "Select MaSach, TenSach, TacGia, Nganh From QLGiaoTrinh";
-                //da = new SqlDataAdapter(sql, conn);
-                //dt = new DataTable();
-                //da.Fill(dt);
-                //dataGridView1.DataSource = dt;
-                ////tạo grid table->tạo column->sửa name, text và name = data property name, sửa align...
-                //dataGridView1.Refresh();
-                //MessageBox.Show("Dữ liệu mới đã được Lưu", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //conn.Close();
-                //sql = "Insert into QLGiaoTrinh (MaSach, TenSach, TacGia,Nganh)" +  values ('" + txtMaSach.Text + "',N'" + txtTenSach.Text + "',N'" + txtTacGia.Text
-                //    + "',N'" + txtNganh.Text + "')";
+                constr = " Data Source = DESKTOP-DTNCD1C\\SQLEXPRESS; Initial Catalog = QLSach; Integrated Security = True";
+                conn.ConnectionString = constr;
+                conn.Open();
 
                 string sqlINSERT = "insert into QLGiaoTrinh values (@MaSach, @TenSach, @TacGia, @Nganh)";
                 SqlCommand cmd = new SqlCommand(sqlINSERT, conn);
@@ -253,6 +314,9 @@ namespace btaplon
                 cmd.Parameters.AddWithValue("TacGia", txtTacGia.Text);
                 cmd.Parameters.AddWithValue("Nganh", txtNganh.Text);
                 cmd.ExecuteNonQuery();
+
+
+
                 sql = "Select MaSach, TenSach, TacGia, Nganh From QLGiaoTrinh";
                 da = new SqlDataAdapter(sql, conn);
                 dt = new DataTable();
@@ -262,59 +326,71 @@ namespace btaplon
                 dataGridView1.Refresh();
                 MessageBox.Show("Dữ liệu mới đã được Lưu", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 conn.Close();
-                ////cmd.Connection = conn;
-                ////cmd.CommandText = sql;
-                ////cmd.ExecuteNonQuery();
-                ////MessageBox.Show("Đã cập nhật thêm mới thành công");
-
             }
+
             else
             {
-                for (i = 0; i <= dataGridView1.RowCount - 2; i++)
-                {
-                    string sqlEdit = "update QLGiaoTrinh set MaSach=@MaSach, TenSach=@TenSach, TacGia=@TacGia, Nganh=@Nganh)";
-                    SqlCommand cmd = new SqlCommand(sqlEdit, conn);
-                    cmd.Parameters.AddWithValue("MaSach", txtMaSach.Text);
-                    cmd.Parameters.AddWithValue("TenSach", txtTenSach.Text);
-                    cmd.Parameters.AddWithValue("TacGia", txtTacGia.Text);
-                    cmd.Parameters.AddWithValue("Nganh", txtNganh.Text);
-                    cmd.ExecuteNonQuery();
-                    sql = "Select MaSach, TenSach, TacGia, Nganh From QLGiaoTrinh";
-                    da = new SqlDataAdapter(sql, conn);
-                    dt = new DataTable();
-                    da.Fill(dt);
-                    dataGridView1.DataSource = dt;
-                    //tạo grid table->tạo column->sửa name, text và name = data property name, sửa align...
-                    dataGridView1.Refresh();
-                    conn.Close();
+                constr = " Data Source = DESKTOP-DTNCD1C\\SQLEXPRESS; Initial Catalog = QLSach; Integrated Security = True";
+                conn.ConnectionString = constr;
+                conn.Open();
 
-                    //txtMaSach.Text = dataGridView1.Rows[i].Cells["MaSach2"].Value.ToString();
-                    //txtTenSach.Text = dataGridView1.Rows[i].Cells["TenSach2"].Value.ToString();
-                    //txtTacGia.Text = dataGridView1.Rows[i].Cells["TacGia2"].Value.ToString();
-                    //txtNganh.Text = dataGridView1.Rows[i].Cells["Nganh2"].Value.ToString();
+                sql = "update QLGiaoTrinh set TenSach = @TenSach, TacGia = @TacGia, Nganh = @Nganh where MaSach=@MaSach";
+                cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("MaSach", txtMaSach.Text);
+                cmd.Parameters.AddWithValue("TenSach", txtTenSach.Text);
+                cmd.Parameters.AddWithValue("TacGia", txtTacGia.Text);
+                cmd.Parameters.AddWithValue("Nganh", txtNganh.Text);
+                cmd.ExecuteNonQuery();
 
-                    //string sqlEdit = "update QLSach2 SET TenSach=@TenSach, TacGia=@TacGia, Nganh=@Nganh where MaSach=@MaSach";
-                    //cmd = new SqlCommand(sql, conn);
-                    //cmd.ExecuteNonQuery();
-                }
-                MessageBox.Show("Đã cập nhật sửa đổi thành công trên toàn ô lưới");
+                sql = "Select MaSach, TenSach, TacGia, Nganh From QLGiaoTrinh";
+                da = new SqlDataAdapter(sql, conn);
+                dt = new DataTable();
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+                //tạo grid table->tạo column->sửa name, text và name = data property name, sửa align...
+                dataGridView1.Refresh();
+
+                MessageBox.Show("Đã cập nhật sửa đổi thành công");
+                conn.Close();
+
             }
+            //    //{
+            //    for (i = 0; i <= dataGridView1.RowCount - 2; i++)
+            //    {
+            //        string sqlEdit = "update QLGiaoTrinh set MaSach=@MaSach, TenSach=@TenSach, TacGia=@TacGia, Nganh=@Nganh";
+            //        SqlCommand cmd = new SqlCommand(sqlEdit, conn);
+            //        cmd.Parameters.AddWithValue("MaSach", txtMaSach.Text);
+            //        cmd.Parameters.AddWithValue("TenSach", txtTenSach.Text);
+            //        cmd.Parameters.AddWithValue("TacGia", txtTacGia.Text);
+            //        cmd.Parameters.AddWithValue("Nganh", txtNganh.Text);
+            //        cmd.ExecuteNonQuery();
+            //        sql = "Select MaSach, TenSach, TacGia, Nganh From QLGiaoTrinh";
+            //        da = new SqlDataAdapter(sql, conn);
+            //        dt = new DataTable();
+            //        da.Fill(dt);
+            //        dataGridView1.DataSource = dt;
+            //        //tạo grid table->tạo column->sửa name, text và name = data property name, sửa align...
+            //        dataGridView1.Refresh();
+            //        conn.Close();
+
+            //txtMaSach.Text = dataGridView1.Rows[i].Cells["MaSach2"].Value.ToString();
+            //txtTenSach.Text = dataGridView1.Rows[i].Cells["TenSach2"].Value.ToString();
+            //txtTacGia.Text = dataGridView1.Rows[i].Cells["TacGia2"].Value.ToString();
+            //txtNganh.Text = dataGridView1.Rows[i].Cells["Nganh2"].Value.ToString();
+
+            //string sqlEdit = "update QLSach2 SET TenSach=@TenSach, TacGia=@TacGia, Nganh=@Nganh where MaSach=@MaSach";
+            //cmd = new SqlCommand(sql, conn);
+            //cmd.ExecuteNonQuery();
+
+            //    MessageBox.Show("Đã cập nhật sửa đổi thành công trên toàn ô lưới");
+            //}
+
 
         }
 
-
     }
-
-        //private void NapCT()
-        //{
-
-        //    //int i = dataGridView1.CurrentRow.Index;//lấy số thứ tự dòng hiện thời
-        //    //txtMaSach.Text = dataGridView1.Rows[i].Cells["MaSach"].Value.ToString();
-        //    //txtTenSach.Text = dataGridView1.Rows[i].Cells["TenSach"].Value.ToString();
-        //    //txtTacGia.Text = dataGridView1.Rows[i].Cells["TacGia"].Value.ToString();
-        //    //txtNganh.Text = dataGridView1.Rows[i].Cells["Nganh"].Value.ToString();
-        //}
-
-        
-    
 }
+
+   
+
+

@@ -40,16 +40,22 @@ namespace btaplon
             this.btnnext = new System.Windows.Forms.Button();
             this.btnfirst = new System.Windows.Forms.Button();
             this.GrdData = new System.Windows.Forms.DataGridView();
-            this.MaTG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenTG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NamSinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btnadd = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comGT = new System.Windows.Forms.ComboBox();
+            this.comTruong = new System.Windows.Forms.ComboBox();
+            this.btntimkiem = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.clMaTG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clTenTG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clNamSinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrdData)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -59,7 +65,7 @@ namespace btaplon
             // txtNamSinh
             // 
             this.txtNamSinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNamSinh.Location = new System.Drawing.Point(485, 188);
+            this.txtNamSinh.Location = new System.Drawing.Point(228, 187);
             this.txtNamSinh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNamSinh.Multiline = true;
             this.txtNamSinh.Name = "txtNamSinh";
@@ -70,7 +76,7 @@ namespace btaplon
             // txtTenTG
             // 
             this.txtTenTG.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenTG.Location = new System.Drawing.Point(485, 136);
+            this.txtTenTG.Location = new System.Drawing.Point(228, 135);
             this.txtTenTG.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTenTG.Multiline = true;
             this.txtTenTG.Name = "txtTenTG";
@@ -81,7 +87,7 @@ namespace btaplon
             // txtMaTG
             // 
             this.txtMaTG.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaTG.Location = new System.Drawing.Point(485, 84);
+            this.txtMaTG.Location = new System.Drawing.Point(228, 83);
             this.txtMaTG.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMaTG.Multiline = true;
             this.txtMaTG.Name = "txtMaTG";
@@ -93,7 +99,7 @@ namespace btaplon
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(353, 188);
+            this.label3.Location = new System.Drawing.Point(96, 187);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(118, 29);
             this.label3.TabIndex = 2;
@@ -103,7 +109,7 @@ namespace btaplon
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(327, 136);
+            this.label2.Location = new System.Drawing.Point(70, 135);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(146, 29);
             this.label2.TabIndex = 1;
@@ -167,9 +173,9 @@ namespace btaplon
             // 
             this.GrdData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GrdData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaTG,
-            this.TenTG,
-            this.NamSinh});
+            this.clMaTG,
+            this.clTenTG,
+            this.clNamSinh});
             this.GrdData.Location = new System.Drawing.Point(4, 342);
             this.GrdData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GrdData.Name = "GrdData";
@@ -178,35 +184,11 @@ namespace btaplon
             this.GrdData.Size = new System.Drawing.Size(1184, 280);
             this.GrdData.TabIndex = 0;
             // 
-            // MaTG
-            // 
-            this.MaTG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MaTG.DataPropertyName = "MaTG";
-            this.MaTG.HeaderText = "Mã Tác Giả";
-            this.MaTG.MinimumWidth = 6;
-            this.MaTG.Name = "MaTG";
-            // 
-            // TenTG
-            // 
-            this.TenTG.DataPropertyName = "TenTG";
-            this.TenTG.HeaderText = "Tên Tác Giả";
-            this.TenTG.MinimumWidth = 6;
-            this.TenTG.Name = "TenTG";
-            this.TenTG.Width = 125;
-            // 
-            // NamSinh
-            // 
-            this.NamSinh.DataPropertyName = "NamSinh";
-            this.NamSinh.HeaderText = "Năm Sinh";
-            this.NamSinh.MinimumWidth = 6;
-            this.NamSinh.Name = "NamSinh";
-            this.NamSinh.Width = 125;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(335, 84);
+            this.label1.Location = new System.Drawing.Point(78, 83);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(136, 29);
             this.label1.TabIndex = 0;
@@ -214,6 +196,10 @@ namespace btaplon
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnSave);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.btnadd);
             this.groupBox1.Controls.Add(this.txtNamSinh);
             this.groupBox1.Controls.Add(this.txtTenTG);
             this.groupBox1.Controls.Add(this.txtMaTG);
@@ -232,6 +218,58 @@ namespace btaplon
             this.groupBox1.Text = "Thông Tin Tác Giả";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.AliceBlue;
+            this.btnSave.Location = new System.Drawing.Point(1005, 175);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(127, 41);
+            this.btnSave.TabIndex = 18;
+            this.btnSave.Text = "Lưu";
+            this.btnSave.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Blue;
+            this.button2.Location = new System.Drawing.Point(696, 176);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(134, 41);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "Sửa";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.Red;
+            this.button3.Location = new System.Drawing.Point(844, 175);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(150, 42);
+            this.button3.TabIndex = 16;
+            this.button3.Text = "Xóa ";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // btnadd
+            // 
+            this.btnadd.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnadd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnadd.ForeColor = System.Drawing.Color.Blue;
+            this.btnadd.Location = new System.Drawing.Point(548, 175);
+            this.btnadd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnadd.Name = "btnadd";
+            this.btnadd.Size = new System.Drawing.Size(127, 43);
+            this.btnadd.TabIndex = 15;
+            this.btnadd.Text = "Thêm";
+            this.btnadd.UseVisualStyleBackColor = false;
+            // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -243,69 +281,112 @@ namespace btaplon
             this.panel1.Size = new System.Drawing.Size(1186, 261);
             this.panel1.TabIndex = 13;
             // 
-            // btnSave
+            // button5
             // 
-            this.btnSave.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnSave.Location = new System.Drawing.Point(1033, 278);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(127, 45);
-            this.btnSave.TabIndex = 27;
-            this.btnSave.Text = "Lưu";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.button5.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.AliceBlue;
+            this.button5.Location = new System.Drawing.Point(855, 283);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(144, 40);
+            this.button5.TabIndex = 26;
+            this.button5.Text = "Xuất Báo Cáo";
+            this.button5.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(590, 276);
+            this.button1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.AliceBlue;
+            this.button1.Location = new System.Drawing.Point(701, 283);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 45);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Thêm";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Size = new System.Drawing.Size(134, 40);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "Hủy Tìm Kiếm";
+            this.button1.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // comGT
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Blue;
-            this.button2.Location = new System.Drawing.Point(739, 277);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(127, 45);
-            this.button2.TabIndex = 26;
-            this.button2.Text = "Sửa";
-            this.button2.UseVisualStyleBackColor = false;
+            this.comGT.FormattingEnabled = true;
+            this.comGT.Location = new System.Drawing.Point(356, 287);
+            this.comGT.Name = "comGT";
+            this.comGT.Size = new System.Drawing.Size(113, 28);
+            this.comGT.TabIndex = 24;
             // 
-            // button4
+            // comTruong
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Red;
-            this.button4.Location = new System.Drawing.Point(887, 277);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(127, 45);
-            this.button4.TabIndex = 25;
-            this.button4.Text = "Xóa ";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.comTruong.FormattingEnabled = true;
+            this.comTruong.Items.AddRange(new object[] {
+            "MaSach",
+            "TenSach",
+            "TacGia",
+            "Nganh"});
+            this.comTruong.Location = new System.Drawing.Point(229, 287);
+            this.comTruong.Name = "comTruong";
+            this.comTruong.Size = new System.Drawing.Size(121, 28);
+            this.comTruong.TabIndex = 23;
+            // 
+            // btntimkiem
+            // 
+            this.btntimkiem.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btntimkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btntimkiem.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.btntimkiem.Location = new System.Drawing.Point(553, 283);
+            this.btntimkiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btntimkiem.Name = "btntimkiem";
+            this.btntimkiem.Size = new System.Drawing.Size(127, 40);
+            this.btntimkiem.TabIndex = 21;
+            this.btntimkiem.Text = "Tìm Kiếm";
+            this.btntimkiem.UseVisualStyleBackColor = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(93, 289);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(117, 29);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Tìm Kiếm";
+            // 
+            // clMaTG
+            // 
+            this.clMaTG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clMaTG.DataPropertyName = "MaTG";
+            this.clMaTG.HeaderText = "Mã Tác Giả";
+            this.clMaTG.MinimumWidth = 6;
+            this.clMaTG.Name = "clMaTG";
+            // 
+            // clTenTG
+            // 
+            this.clTenTG.DataPropertyName = "TenTG";
+            this.clTenTG.HeaderText = "Tên Tác Giả";
+            this.clTenTG.MinimumWidth = 6;
+            this.clTenTG.Name = "clTenTG";
+            this.clTenTG.Width = 125;
+            // 
+            // clNamSinh
+            // 
+            this.clNamSinh.DataPropertyName = "NamSinh";
+            this.clNamSinh.HeaderText = "Năm Sinh";
+            this.clNamSinh.MinimumWidth = 6;
+            this.clNamSinh.Name = "clNamSinh";
+            this.clNamSinh.Width = 125;
             // 
             // frmQLtacgia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1186, 704);
-            this.Controls.Add(this.GrdData);
-            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.comGT);
+            this.Controls.Add(this.comTruong);
+            this.Controls.Add(this.btntimkiem);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.GrdData);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -318,6 +399,7 @@ namespace btaplon
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -332,16 +414,22 @@ namespace btaplon
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnlast;
         private System.Windows.Forms.Button btnprv;
         private System.Windows.Forms.Button btnnext;
         private System.Windows.Forms.Button btnfirst;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaTG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenTG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NamSinh;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnadd;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comGT;
+        private System.Windows.Forms.ComboBox comTruong;
+        private System.Windows.Forms.Button btntimkiem;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clMaTG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clTenTG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clNamSinh;
     }
 }

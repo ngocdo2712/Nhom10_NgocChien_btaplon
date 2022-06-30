@@ -21,6 +21,7 @@ namespace btaplon
         DataTable comdt = new DataTable();
         int i;
         bool addnewflag;
+        DataTable dtBC = new DataTable();
 
         public frmQLtacgia()
         {
@@ -32,33 +33,46 @@ namespace btaplon
             constr = " Data Source = DESKTOP-DTNCD1C\\SQLEXPRESS; Initial Catalog = QLSach; Integrated Security = True";
             conn.ConnectionString = constr;
             conn.Open();
-            sql = "Select * From QLTacGia";
+            sql = "Select * From QLGiaoTrinh order by MaSach";
             da = new SqlDataAdapter(sql, conn);
             dt = new DataTable();
-            da.Fill(dt); //cmt
+            da.Fill(dt); //dữ liệu từ da đổ vào bảng dt
             GrdData.DataSource = dt;
-
             //tạo grid table -> tạo column -> sửa name, text và name = data property name, sửa align ...
-            GrdData.Refresh();
+            sql = "Select Distinct manhom from QLGiaoTrinh";
+            da = new SqlDataAdapter(sql, conn);
+            //da.Fill(dtNhom);
+            //txtMaSach.DataSource = dtNhom;
+            //txtMaSach.DisplayMember = "MaSach";
+            NapCT();
+            conn.Close();
 
 
+        }
+        private void NapCT()
+        {
+            i = GrdData.CurrentRow.Index; //i sẽ chứa số thứ tự của dòng hiện thời trong ô lưới
+            txtMaTG.Text = GrdData.Rows[i].Cells["clMaTG"].Value.ToString();       // cách lấy gt dòng i, cột mã nhóm 
+            txtTenTG.Text = GrdData.Rows[i].Cells["clTenTG"].Value.ToString();
+            txtNamSinh.Text = GrdData.Rows[i].Cells["clNamSinh"].Value.ToString();
         }
 
         private void btnfirst_Click(object sender, EventArgs e)
         {
             GrdData.CurrentCell = GrdData[0, 0]; //[cot, dong]
-
+            NapCT();
         }
 
         private void btnnext_Click(object sender, EventArgs e)
         {
-            
-                int i = Convert.ToInt16(GrdData.CurrentRow.Index.ToString());
-                if (i < GrdData.RowCount - 1)
-                {
-                    GrdData.CurrentCell = GrdData[0, i + 1];
-                   // NapCT();
-                }
+
+            int i = Convert.ToInt16(GrdData.CurrentRow.Index.ToString());
+            if (i < GrdData.RowCount - 1)
+            {
+                GrdData.CurrentCell = GrdData[0, i + 1];
+                NapCT();
+
+            }
             
 
         }
@@ -66,7 +80,7 @@ namespace btaplon
         private void btnlast_Click(object sender, EventArgs e)
         {
             GrdData.CurrentCell = GrdData[0, GrdData.RowCount - 1];
-
+            NapCT();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -165,8 +179,9 @@ namespace btaplon
             if (i > 0)
             {
                 GrdData.CurrentCell = GrdData[0, i - 1];
-                // NapCT();
+                NapCT();
             }
+
         }
     }
 }

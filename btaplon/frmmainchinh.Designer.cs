@@ -183,19 +183,19 @@ namespace btaplon
             // 
             this.thôngTinToolStripMenuItem.Image = global::btaplon.Properties.Resources.avatar;
             this.thôngTinToolStripMenuItem.Name = "thôngTinToolStripMenuItem";
-            this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(270, 38);
+            this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(228, 38);
             this.thôngTinToolStripMenuItem.Text = "Thông Tin";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(267, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(225, 6);
             // 
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("đăngXuấtToolStripMenuItem.Image")));
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(270, 38);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(228, 38);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng Xuất";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
@@ -275,6 +275,7 @@ namespace btaplon
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmmainchinh";
             this.Text = "frmmainchinh";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmmainchinh_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
